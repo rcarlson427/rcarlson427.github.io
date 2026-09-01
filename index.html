@@ -2,96 +2,270 @@
 <html>
     <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="myStyles.css" rel="stylesheet">
-    <script src="./bootstrap/js/bootstrap.min.js"></script> 
-    <form>
-        <label for="kittenName">Name:</label>
-        <input type="text" id="kittenName" name="kittenName">
-        <button type="button" onclick="randomizeKittenName()">Randomize Name</button><br>
+    <script src="./bootstrap/js/bootstrap.min.js"></script>
+    <div class="row">
+        <form>
+            <div class="column">
+                <label for="kittenName">Name:</label>
+                <input type="text" id="kittenName" name="kittenName">
+                <button type="button" class="removeForPrinting" onclick="randomizeKittenName()">Randomize Name</button><br>
 
-        <label for="childhood">Childhood:</label>
-        <select id="childhood">
-            <option value=""></option>
-            <option value="Test1">Test1</option>
-            <option value="Test2">Test2</option>
-            <option value="Test3">Test3</option>
-        </select>
-        <button type="button" onclick="randomizeChildhood()">Randomize Childhood</button><br>
+                <label for="kittenPronouns">Pronouns:</label>
+                <select id="kittenPronouns">
+                    <option value=""></option>
+                    <option value="sheHerPronouns">She/Her</option>
+                    <option value="heHimPronouns">He/Him</option>
+                    <option value="theyThemPronouns">They/Them</option>
+                    <option value="otherPronouns">Other</option>
+                </select>
 
-        <label for="characterTrait">Character Trait:</label>
-        <select id="characterTrait">
-            <option value=""></option>
-            <option value="Test1">Test1</option>
-            <option value="Test2">Test2</option>
-            <option value="Test3">Test3</option>
-        </select>
-        <button type="button" onclick="randomizeCharacterTrait()">Randomize Character Trait</button><br>
+                <label for="childhoodSelect">Childhood:</label>
+                <select id="childhoodSelect">
+                    <option value=""></option>
+                </select>
+                <button type="button" class="removeForPrinting" onclick="randomizeChildhood()">Randomize Childhood</button><br>
 
-        <label for="cattribute">Cattribute:</label>
-        <input type="text" id="cattribute" name="cattribute" disabled><br>
+                <label for="characterTrait">Character Trait:</label>
+                <select id="characterTrait">
+                    <option value=""></option>
+                </select>
+                <button type="button" class="removeForPrinting"onclick="randomizeCharacterTrait()">Randomize Character Trait</button><br>
 
-        <label for="strongAttribute">Strong:</label>
-        <input id="strongAttribute" type="number" min="1" max="5" value="1"/>
-        <label for="smartAttribute">Smart:</label>
-        <input id="smartAttribute" type="number" min="1" max="5" value="1"/>
-        <label for="cuteAttribute">Cute:</label>
-        <input id="cuteAttribute" type="number" min="1" max="5" value="1"/>
-        <button type="button" onclick="randomizeAttributes()">Randomize Attributes</button><br>
+                <label for="cattribute">Cattribute:</label>
+                <input type="text" id="cattribute" name="cattribute" disabled><br>
 
-        <label for="heartPoints">Heart Points:</label>
-        <input id="heartPoints" type="number" value="2" disabled/>
-        <label for="furrendshipPoints">Furr-endship:</label>
-        <input id="furrendshipPoints" type="number" value="1" disabled/><br>
+                <label for="strongAttribute">Strong:</label>
+                <input id="strongAttribute" type="number" min="1" max="5" value="1"/>
+                <label for="smartAttribute">Smart:</label>
+                <input id="smartAttribute" type="number" min="1" max="5" value="1"/>
+                <label for="cuteAttribute">Cute:</label>
+                <input id="cuteAttribute" type="number" min="1" max="5" value="1"/>
+                <button type="button" class="removeForPrinting" onclick="randomizeAttributes()">Randomize Attributes</button><br>
 
-        <label>Skills:</label><br>
-        <label for="skill1">Skill1</label>
-        <input type="checkbox" id="skill1" class="skills"><br>
-        <label for="skill2">Skill2</label>
-        <input type="checkbox" id="skill2" class="skills"><br>
-        <label for="skill3">Skill3</label>
-        <input type="checkbox" id="skill3" class="skills"><br>
+                <label for="heartPoints">Heart Points:</label>
+                <input id="heartPoints" type="number" value="2" disabled/><br>
+                <label for="furrendshipPoints">Furr-endship:</label>
+                <input id="furrendshipPoints" type="number" value="1" disabled/><br>
 
-        <label>SpellBook:</label><br>
-        <select id="spell1">
-            <option value=""></option>
-            <option value="SpellA">SpellA</option>
-            <option value="SpellB">SpellB</option>
-            <option value="SpellC">SpellC</option>
-        </select>
-        <select id="spell2">
-            <option value=""></option>
-            <option value="SpellA">SpellA</option>
-            <option value="SpellB">SpellB</option>
-            <option value="SpellC">SpellC</option>
-        </select><br>
+                <label>Skills:</label><br>
+                <div id="skills"></div>
+                <label for="skill1">Skill1</label>
+                <input type="checkbox" id="skill1" class="skills"><br>
+                <label for="skill2">Skill2</label>
+                <input type="checkbox" id="skill2" class="skills"><br>
+                <label for="skill3">Skill3</label>
+                <input type="checkbox" id="skill3" class="skills"><br>
+
+                <label>SpellBook:</label><br>
+                <select id="spellSlot1">
+                    <option value=""></option>
+                </select><br>
+                <select id="spellSlot2">
+                    <option value=""></option>
+                </select><br>
+                <button type="button" onclick="window.open('spellbook.html', '_blank');">Spells</button><br>
 
 
-        <label>Backpack:</label><br>
-        <input type="text" id="backpack1" disabled><br>
-        <input type="text" id="backpack2" disabled><br>
-        <input type="text" id="backpack3" disabled><br>
-        <input type="text" id="backpack4" disabled><br>
-        <input type="text" id="backpack5" disabled><br>
+                <label>Backpack:</label><br>
+                <input type="text" id="backpack1" class="backpackItem" disabled><br>
+                <input type="text" id="backpack2" class="backpackItem" disabled><br>
+                <input type="text" id="backpack3" class="backpackItem" disabled><br>
+                <input type="text" id="backpack4" class="backpackItem" disabled><br>
+                <input type="text" id="backpack5" class="backpackItem" disabled><br>
+                <input type="text" id="backpack6" class="backpackItem" disabled><br>
+                <input type="text" id="backpack7" class="backpackItem" disabled><br>
 
-    </form>
+                <button class="removeForPrinting" type="button" onclick="randomizeAll()">Randomize All</button><br>
+                <button class="removeForPrinting" onclick="window.print()">Print This Page</button>
+
+            </div>
+            <div class="column">
+                <label for="childhoodDescription">Childhood Description:</label><br>
+                <textarea id="childhoodDescription" disabled></textarea><br>
+
+                <label for="cattributeDescription">Cattribute Description:</label><br>
+                <textarea id="cattributeDescription" disabled></textarea><br>
+
+                <label for="spellSlot1Description">First Spell Description:</label><br>
+                <textarea id="spellSlot1Description" disabled></textarea><br>
+
+                <label for="spellSlot2Description">Second Spell Description:</label><br>
+                <textarea id="spellSlot2Description" disabled></textarea><br>
+            </div>
+        </form>
+    </div>
 </html>
 
+<script src="variables.js"></script>
 <script>
+
+    // Add the childhoods to the select 
+    const selectMenu = document.getElementById('childhoodSelect');
+    childhoodCollection.forEach((item, index) => {
+        const option = document.createElement('option');
+        option.value = `childhoodValue${index + 1}`;
+        option.textContent = item.title;
+        selectMenu.appendChild(option);
+    });
+
+    // Add the traits to the select
+    const characterTrait = document.getElementById('characterTrait');
+    traits.forEach(item => {
+        const traitOption = document.createElement('option');
+        traitOption.textContent = item;
+        characterTrait.appendChild(traitOption);
+    });
+
+    // Add the Spells to the selects
+    const spellSlot1 = document.getElementById('spellSlot1');
+    spellArray.forEach((item, index) => {
+        const option = document.createElement('option');
+        option.value = `spellNumber${index + 1}`;
+        option.textContent = item.name;
+        spellSlot1.appendChild(option);
+    });
+
+    const spellSlot2 = document.getElementById('spellSlot2');
+    spellArray.forEach((item, index) => {
+        const option = document.createElement('option');
+        option.value = `spellNumber${index + 1}`;
+        option.textContent = item.name;
+        spellSlot2.appendChild(option);
+    });
+
     const strongAttribute = document.getElementById('strongAttribute');
     const smartAttribute = document.getElementById('smartAttribute');
     const cuteAttribute = document.getElementById('cuteAttribute');
-    const spell1 = document.getElementById('spell1');
-    const spell2 = document.getElementById('spell2');
-    const childhood = document.getElementById('childhood');
+    const childhoodSelect = document.getElementById('childhoodSelect');
     let checkedBoxes = 0;
-    const skill1 = document.getElementById('skill1');
-    const skill2 = document.getElementById('skill2');
-    const skill3 = document.getElementById('skill3');
 
-    // TODO: randomizeKittenName Function 
-    // TODO: randomizeChildhood Function
-    // TODO: randomizeCharacterTrait Function 
-    // TODO: randomizeAttributes Function
     // TODO: Function for two skills, can I add event listeners on when the boxes are checked, and when two are checked disable all unchecked unless one is unchecked?
+
+    function rollADie(){
+        randomNum = Math.floor(Math.random() * 6) + 1;
+        return randomNum;
+    }
+    
+    // Function for updating spell descriptions and checking that the two spells are different
+    function spellUpdate(){
+        // Ensure the two spells chosen aren't the same
+        if(spellSlot1.value === spellSlot2.value){
+            window.alert("Cannot have two of the same spell!");
+            event.target.value = "";
+            return;
+        }
+
+        spellIDNum = parseInt(event.target.id.match(/\d+$/))
+        spellValueNum = parseInt(event.target.value.match(/\d+$/));
+        if(spellIDNum === 1){
+            document.getElementById('spellSlot1Description').value = spellArray[spellValueNum - 1].name + " (" + spellArray[spellValueNum - 1].difficulty + ")\n" 
+                                                                    + spellArray[spellValueNum - 1].path + " (" + spellArray[spellValueNum - 1].attribute + ")\n" 
+                                                                    + spellArray[spellValueNum - 1].description;
+        } else if (spellIDNum === 2){
+            document.getElementById('spellSlot2Description').value = spellArray[spellValueNum - 1].name + " (" + spellArray[spellValueNum - 1].difficulty + ")\n" 
+                                                                    + spellArray[spellValueNum - 1].path + " (" + spellArray[spellValueNum - 1].attribute + ")\n" 
+                                                                    + spellArray[spellValueNum - 1].description;
+        }
+    }
+
+    // Function that adds a random kitten name
+    function randomizeKittenName(){
+        randomNum = Math.floor(Math.random() * randKittenNames.length);
+        document.getElementById('kittenName').value = randKittenNames[randomNum];
+    }
+
+    // Function that selects a random childhood, based on the table on page 25
+    // TODO: Update this for if there are custom childhoods added
+    function randomizeChildhood(){
+        typeChildhood = rollADie();
+        childhoodNumber = rollADie();
+        if(typeChildhood < 5){ // Kittens of the Kingdom
+            switch(childhoodNumber){
+                case 1: 
+                    document.getElementById('childhoodSelect').value = "childhoodValue1";
+                    break;
+                case 2: 
+                    document.getElementById('childhoodSelect').value = "childhoodValue2";
+                    break;
+                case 3: 
+                    document.getElementById('childhoodSelect').value = "childhoodValue3";
+                    break;
+                case 4:    
+                    document.getElementById('childhoodSelect').value = "childhoodValue4";
+                    break;
+                case 5: 
+                    document.getElementById('childhoodSelect').value = "childhoodValue5";
+                    break;
+                case 6: 
+                    document.getElementById('childhoodSelect').value = "childhoodValue6";
+                    break;
+            }
+        } else if (typeChildhood === 5){ // Odd Ones Out
+            switch(childhoodNumber){
+                case 1: 
+                    document.getElementById('childhoodSelect').value = "childhoodValue7";
+                    break;
+                case 2: 
+                    document.getElementById('childhoodSelect').value = "childhoodValue8";
+                    break;
+                case 3: 
+                    document.getElementById('childhoodSelect').value = "childhoodValue9";
+                    break;
+                case 4:    
+                    document.getElementById('childhoodSelect').value = "childhoodValue10";
+                    break;
+                case 5: 
+                    document.getElementById('childhoodSelect').value = "childhoodValue11";
+                    break;
+                case 6: 
+                    document.getElementById('childhoodSelect').value = "childhoodValue12";
+                    break;
+            }
+        } else { // Other Animals
+            switch(childhoodNumber){
+                case 1: 
+                    document.getElementById('childhoodSelect').value = "childhoodValue13";
+                    break;
+                case 2: 
+                    document.getElementById('childhoodSelect').value = "childhoodValue14";
+                    break;
+                case 3: 
+                    document.getElementById('childhoodSelect').value = "childhoodValue15";
+                    break;
+                case 4:    
+                    document.getElementById('childhoodSelect').value = "childhoodValue16";
+                    break;
+                case 5: 
+                    document.getElementById('childhoodSelect').value = "childhoodValue17";
+                    break;
+                case 6: 
+                    document.getElementById('childhoodSelect').value = "childhoodValue18";
+                    break;
+            }
+        }
+        childhoodUpdate(); // Update the cattribute and backpack based on the childhood
+    }
+
+    // Update the cattribute and backpack based on the childhood
+    function childhoodUpdate(){
+        childhoodValueNum = parseInt(childhoodSelect.value.match(/\d+$/));
+        document.getElementById('cattribute').value = childhoodCollection[childhoodValueNum - 1].cattribute;
+        document.getElementById('childhoodDescription').value = childhoodCollection[childhoodValueNum - 1].title+ "\n" + childhoodCollection[childhoodValueNum - 1].description;
+        document.getElementById('cattributeDescription').value = childhoodCollection[childhoodValueNum - 1].cattribute + "\n" + childhoodCollection[childhoodValueNum - 1].cattributeDescription;
+        childhoodBackpack = childhoodCollection[childhoodValueNum - 1].backpackContents;
+        backpackContentsSet = childhoodBackpack.split(';');
+        document.getElementById('backpack1').value = backpackContentsSet[0];
+        document.getElementById('backpack2').value = backpackContentsSet[1];
+        document.getElementById('backpack3').value = backpackContentsSet[2];
+        document.getElementById('backpack4').value = backpackContentsSet[3];
+        document.getElementById('backpack5').value = backpackContentsSet[4];
+    }
+
+    // Function that adds a random character trait
+    function randomizeCharacterTrait(){
+        randomNum = Math.floor(Math.random() * traits.length);
+        document.getElementById('characterTrait').value = traits[randomNum];
+    }
 
     // Make sure the max value of all 3 attributes combined doesn't exceed 8
     // Also update the heart points and furr-endship values according to the attributes
@@ -115,41 +289,24 @@
         document.getElementById('furrendshipPoints').value = cuteNum;
     }
 
-    // Function for checking that the two spells are different
-    function spellUpdate(spell){
-        if(spell1.value === spell2.value){
-            window.alert("Cannot have two of the same spell!");
-            event.target.value = "";
-        }
+    // Create three random numbers between 1 and 5 that add up to 8
+    function randomizeAttributes(){
+        let num1, num2, num3;
+            do {
+            // Generate random integers between 1 and 5 inclusive
+            num1 = Math.floor(Math.random() * 5) + 1;
+            num2 = Math.floor(Math.random() * 5) + 1;
+            num3 = Math.floor(Math.random() * 5) + 1;
+        } while (num1 + num2 + num3 !== 8);
+
+        document.getElementById('strongAttribute').value = num1;
+        document.getElementById('smartAttribute').value = num2;
+        document.getElementById('cuteAttribute').value = num3;
+
+        checkMaxValue();
     }
 
-    // Update the backpack contents and cattribute based on the childhood
-    // TODO: Make this better later
-    function childhoodUpdate(){
-        if(childhood.value === "Test1"){
-            document.getElementById('cattribute').value = "cattribute1";
-            document.getElementById('backpack1').value = "backpack1";
-            document.getElementById('backpack2').value = "backpack2";
-            document.getElementById('backpack3').value = "backpack3";
-            document.getElementById('backpack4').value = "backpack4";
-            document.getElementById('backpack5').value = "backpack5";
-        } else if(childhood.value === "Test2"){
-            document.getElementById('cattribute').value = "cattribute2";
-            document.getElementById('backpack1').value = "backpackA";
-            document.getElementById('backpack2').value = "backpackB";
-            document.getElementById('backpack3').value = "backpackC";
-            document.getElementById('backpack4').value = "backpackD";
-            document.getElementById('backpack5').value = "backpackE";
-        } else if(childhood.value === "Test3"){
-            document.getElementById('cattribute').value = "cattribute3";
-            document.getElementById('backpack1').value = "backpack";
-            document.getElementById('backpack2').value = "packback";
-            document.getElementById('backpack3').value = "backback";
-            document.getElementById('backpack4').value = "packpack";
-            document.getElementById('backpack5').value = "hello";
-        }
-    }
-
+    // Function that makes sure the total stats of all skill points isn't more than 8
     function skillCheck(){
         checkedBoxes = parseInt(checkedBoxes);
         if(event.target.checked){
@@ -168,13 +325,20 @@
         }
     }
 
+    function randomizeAll(){
+        randomizeCharacterTrait();
+        randomizeChildhood();
+        randomizeAttributes();
+        randomizeKittenName();
+    }
+
     // Event Listeners
     strongAttribute.addEventListener('change',checkMaxValue);
     smartAttribute.addEventListener('change',checkMaxValue);
     cuteAttribute.addEventListener('change',checkMaxValue);
-    spell1.addEventListener('change',spellUpdate);
-    spell2.addEventListener('change',spellUpdate);
-    childhood.addEventListener('change',childhoodUpdate);
+    spellSlot1.addEventListener('change',spellUpdate);
+    spellSlot2.addEventListener('change',spellUpdate);
+    childhoodSelect.addEventListener('change',childhoodUpdate);
     skill1.addEventListener('change',skillCheck);
     skill2.addEventListener('change',skillCheck);
     skill3.addEventListener('change',skillCheck);
