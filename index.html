@@ -2,39 +2,179 @@
 <html>
     <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <script src="./bootstrap/js/bootstrap.min.js"></script>
-    <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-        <a class="navbar-brand" href="#">My Github</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Main</a>
-            </li>
-            <li class="nav-item dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Food
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <li><a class="dropdown-item" href="#">Fish</a></li>
-                <li><a class="dropdown-item" href="#">Vegetarian</a></li>
-                </ul>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Books
-                </a>
-                <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Ratings</a></li>
-                <li><a class="dropdown-item" href="#">In-Depth Reviews</a></li>
-                </ul>
-            </li>
-            </ul>
-        </div>
-        </div>
-    </nav>
-    </body>
+    <form>
+        <label for="kittenName">Name:</label>
+        <input type="text" id="kittenName" name="kittenName">
+        <button type="button" onclick="randomizeKittenName()">Randomize Name</button><br>
+
+        <label for="childhood">Childhood:</label>
+        <select id="childhood">
+            <option value=""></option>
+            <option value="Test1">Test1</option>
+            <option value="Test2">Test2</option>
+            <option value="Test3">Test3</option>
+        </select>
+        <button type="button" onclick="randomizeChildhood()">Randomize Childhood</button><br>
+
+        <label for="characterTrait">Character Trait:</label>
+        <select id="characterTrait">
+            <option value=""></option>
+            <option value="Test1">Test1</option>
+            <option value="Test2">Test2</option>
+            <option value="Test3">Test3</option>
+        </select>
+        <button type="button" onclick="randomizeCharacterTrait()">Randomize Character Trait</button><br>
+
+        <label for="cattribute">Cattribute:</label>
+        <input type="text" id="cattribute" name="cattribute" disabled><br>
+
+        <label for="strongAttribute">Strong:</label>
+        <input id="strongAttribute" type="number" min="1" max="5" value="1"/>
+        <label for="smartAttribute">Smart:</label>
+        <input id="smartAttribute" type="number" min="1" max="5" value="1"/>
+        <label for="cuteAttribute">Cute:</label>
+        <input id="cuteAttribute" type="number" min="1" max="5" value="1"/>
+        <button type="button" onclick="randomizeAttributes()">Randomize Attributes</button><br>
+
+        <label for="heartPoints">Heart Points:</label>
+        <input id="heartPoints" type="number" value="2" disabled/>
+        <label for="furrendshipPoints">Furr-endship:</label>
+        <input id="furrendshipPoints" type="number" value="1" disabled/><br>
+
+        <label>Skills:</label><br>
+        <label for="skill1">Skill1</label>
+        <input type="checkbox" id="skill1" class="skills"><br>
+        <label for="skill2">Skill2</label>
+        <input type="checkbox" id="skill2" class="skills"><br>
+        <label for="skill3">Skill3</label>
+        <input type="checkbox" id="skill3" class="skills"><br>
+
+        <label>SpellBook:</label><br>
+        <select id="spell1">
+            <option value=""></option>
+            <option value="SpellA">SpellA</option>
+            <option value="SpellB">SpellB</option>
+            <option value="SpellC">SpellC</option>
+        </select>
+        <select id="spell2">
+            <option value=""></option>
+            <option value="SpellA">SpellA</option>
+            <option value="SpellB">SpellB</option>
+            <option value="SpellC">SpellC</option>
+        </select><br>
+
+
+        <label>Backpack:</label><br>
+        <input type="text" id="backpack1" disabled><br>
+        <input type="text" id="backpack2" disabled><br>
+        <input type="text" id="backpack3" disabled><br>
+        <input type="text" id="backpack4" disabled><br>
+        <input type="text" id="backpack5" disabled><br>
+
+    </form>
 </html>
+
+<script>
+    const strongAttribute = document.getElementById('strongAttribute');
+    const smartAttribute = document.getElementById('smartAttribute');
+    const cuteAttribute = document.getElementById('cuteAttribute');
+    const spell1 = document.getElementById('spell1');
+    const spell2 = document.getElementById('spell2');
+    const childhood = document.getElementById('childhood');
+    let checkedBoxes = 0;
+    const skill1 = document.getElementById('skill1');
+    const skill2 = document.getElementById('skill2');
+    const skill3 = document.getElementById('skill3');
+
+    // TODO: randomizeKittenName Function 
+    // TODO: randomizeChildhood Function
+    // TODO: randomizeCharacterTrait Function 
+    // TODO: randomizeAttributes Function
+    // TODO: Function for two skills, can I add event listeners on when the boxes are checked, and when two are checked disable all unchecked unless one is unchecked?
+
+    // Make sure the max value of all 3 attributes combined doesn't exceed 8
+    // Also update the heart points and furr-endship values according to the attributes
+    // TODO: I will need a check on submit to make sure it does reach 8
+    function checkMaxValue(){
+        strongNum = parseInt(strongAttribute.value);
+        smartNum = parseInt(smartAttribute.value);
+        cuteNum = parseInt(cuteAttribute.value);
+
+        if((strongNum+smartNum+cuteNum) == 8){
+            document.getElementById('strongAttribute').max = strongNum;
+            document.getElementById('smartAttribute').max = smartNum;
+            document.getElementById('cuteAttribute').max = cuteNum;
+        } else {
+            document.getElementById('strongAttribute').max = 5;
+            document.getElementById('smartAttribute').max = 5;
+            document.getElementById('cuteAttribute').max = 5;
+        }
+
+        document.getElementById('heartPoints').value = (strongNum+smartNum);
+        document.getElementById('furrendshipPoints').value = cuteNum;
+    }
+
+    // Function for checking that the two spells are different
+    function spellUpdate(spell){
+        if(spell1.value === spell2.value){
+            window.alert("Cannot have two of the same spell!");
+            event.target.value = "";
+        }
+    }
+
+    // Update the backpack contents and cattribute based on the childhood
+    // TODO: Make this better later
+    function childhoodUpdate(){
+        if(childhood.value === "Test1"){
+            document.getElementById('cattribute').value = "cattribute1";
+            document.getElementById('backpack1').value = "backpack1";
+            document.getElementById('backpack2').value = "backpack2";
+            document.getElementById('backpack3').value = "backpack3";
+            document.getElementById('backpack4').value = "backpack4";
+            document.getElementById('backpack5').value = "backpack5";
+        } else if(childhood.value === "Test2"){
+            document.getElementById('cattribute').value = "cattribute2";
+            document.getElementById('backpack1').value = "backpackA";
+            document.getElementById('backpack2').value = "backpackB";
+            document.getElementById('backpack3').value = "backpackC";
+            document.getElementById('backpack4').value = "backpackD";
+            document.getElementById('backpack5').value = "backpackE";
+        } else if(childhood.value === "Test3"){
+            document.getElementById('cattribute').value = "cattribute3";
+            document.getElementById('backpack1').value = "backpack";
+            document.getElementById('backpack2').value = "packback";
+            document.getElementById('backpack3').value = "backback";
+            document.getElementById('backpack4').value = "packpack";
+            document.getElementById('backpack5').value = "hello";
+        }
+    }
+
+    function skillCheck(){
+        checkedBoxes = parseInt(checkedBoxes);
+        if(event.target.checked){
+            checkedBoxes = checkedBoxes + 1;
+        } else {
+            checkedBoxes = checkedBoxes - 1;
+        }
+        if(checkedBoxes === 2){
+            document.querySelectorAll('input.skills:not(:checked)').forEach(checkbox => {
+                checkbox.disabled = true;
+            });
+        } else {
+            document.querySelectorAll('input.skills:not(:checked)').forEach(checkbox => {
+                checkbox.disabled = false;
+            });
+        }
+    }
+
+    // Event Listeners
+    strongAttribute.addEventListener('change',checkMaxValue);
+    smartAttribute.addEventListener('change',checkMaxValue);
+    cuteAttribute.addEventListener('change',checkMaxValue);
+    spell1.addEventListener('change',spellUpdate);
+    spell2.addEventListener('change',spellUpdate);
+    childhood.addEventListener('change',childhoodUpdate);
+    skill1.addEventListener('change',skillCheck);
+    skill2.addEventListener('change',skillCheck);
+    skill3.addEventListener('change',skillCheck);
+</script>
